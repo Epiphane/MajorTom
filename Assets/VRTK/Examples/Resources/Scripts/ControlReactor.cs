@@ -5,16 +5,21 @@
     public class ControlReactor : MonoBehaviour
     {
         public TextMesh go;
+        public int leverNum;
+        //LeverMessage message;
 
         private void Start()
         {
             GetComponent<VRTK_Control>().defaultEvents.OnValueChanged.AddListener(HandleChange);
             HandleChange(GetComponent<VRTK_Control>().GetValue(), GetComponent<VRTK_Control>().GetNormalizedValue());
+            go.text = leverNum.ToString();
+            //message = GameObject.FindObjectOfType<LeverMessage>();
         }
 
         private void HandleChange(float value, float normalizedValue)
         {
-            go.text = value.ToString() + "(" + normalizedValue.ToString() + "%)";
+            //go.text = value.ToString() + "(" + normalizedValue.ToString() + "%)";
+            //message.LeverPulled(leverNum);
         }
     }
 }
