@@ -8,6 +8,11 @@ public class ShipManagerScript : MonoBehaviour {
 
     private bool needsLever5Pulled = true;
 
+	public float shipSpeed = 0;
+	public float altitude = 0;
+	public float wheelsRaised = 0;
+	public float engineHeat = 0;
+
 	// Use this for initialization
 	void Start () {
         majorTomDisplay.Say("You need to pull lever 5 stat!!");
@@ -27,4 +32,11 @@ public class ShipManagerScript : MonoBehaviour {
             majorTomDisplay.Say("That's Not Lever 5 dummy!");
         }
     }
+
+	public void IgniteEngine () {
+		
+	}
+
+	public void SetThrottle (float value) {
+	}
 }

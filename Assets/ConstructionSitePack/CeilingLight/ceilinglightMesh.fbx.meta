@@ -3,7 +3,12 @@ guid: 263a5c8c5ebc79048a4f3148ca6330db
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: ceilinglightMesh
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
