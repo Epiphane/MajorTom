@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaveManScript : MonoBehaviour {
 
 	public float speed = 30f;
+	public float currentAmp = 60.0f;
+	public float correctAmp = 90.0f;
 
 	private Vector3 root;
 	private float offset = 0;
@@ -13,8 +15,6 @@ public class WaveManScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		spriteWidth = 2 * GetComponentInChildren<SpriteRenderer> ().sprite.bounds.extents.x;
-		Debug.Log (spriteWidth);
 		root = transform.localPosition;
 
 		children = GetComponentsInChildren<Transform> ();
@@ -22,6 +22,7 @@ public class WaveManScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		spriteWidth = 2 * GetComponentInChildren<SpriteRenderer> ().sprite.bounds.extents.x;
 		offset += Time.deltaTime * speed;
 
 		while (offset > spriteWidth) {
@@ -29,9 +30,13 @@ public class WaveManScript : MonoBehaviour {
 		}
 
 		transform.localPosition = root + new Vector3(offset, 0, 0);
-//		transform.localScale = new Vector3(transform.localScale.x, offset > 1 ? 1 : -1, transform.localScale.z);
-//		for (int i = 0; i < children.Length; i++) {
-//			children [i].localPosition = new Vector3 ((i - 2) * spriteWidth + offset, 0, 0);
-//		}
+		transform.localScale = new Vector3 (1, 0.75f * currentAmp / correctAmp, 1);
+		float diff = Mathf.Min(2 * Mathf.Abs (currentAmp - correctAmp) / correctAmp, 1);
+
+		for (int i = 1; i < children.Length; i++) {
+			children [i].localPosition = new Vector3((i - 2) * spriteWidth, 0, 0);
+			children [i].GetComponent<SpriteRenderer> ().color = new Color (diff, 1 - diff, 0);
+		}
+
 	}
 }
