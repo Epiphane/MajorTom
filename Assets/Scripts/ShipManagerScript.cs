@@ -196,10 +196,10 @@ public class ShipManagerScript : MonoBehaviour {
 	}
 
 	public void IgniteEngine () {
-        Debug.Log("ENGINE ON");
+		if (!engineOn)
+			engineOnSound.Play ();
+		
         engineOn = true;
-
-		engineOnSound.Play ();
 	}
 
     public void DisengageBrakes() {
