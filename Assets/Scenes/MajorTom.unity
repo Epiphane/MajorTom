@@ -6706,11 +6706,6 @@ Prefab:
       propertyPath: m_Name
       value: NVRExampleLever (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 114552933443883930, guid: 313157ae7bfd1d847991eeb3e682a237,
-        type: 2}
-      propertyPath: Rigidbody
-      value: 
-      objectReference: {fileID: 1573247278}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
   m_IsPrefabParent: 0
@@ -9564,7 +9559,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.390947
+      value: -0.13387904
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -12465,7 +12460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.76900953
+      value: -0.7558165
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -13737,11 +13732,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!54 &1573247278 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 5432294, guid: 313157ae7bfd1d847991eeb3e682a237,
-    type: 2}
-  m_PrefabInternal: {fileID: 728124954}
 --- !u!1 &1573703108
 GameObject:
   m_ObjectHideFlags: 0
@@ -16273,7 +16263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.394947
+      value: -0.12987904
       objectReference: {fileID: 0}
     - target: {fileID: 5942578, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
       propertyPath: m_ConnectedAnchor.z
