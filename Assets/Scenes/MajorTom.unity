@@ -3371,7 +3371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
-  DistanceToEngage: 0.075
+  DistanceToEngage: 0.01
   ButtonDown: 0
   ButtonUp: 0
   ButtonIsPushed: 0
@@ -3430,7 +3430,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 720b0c3aa901242ac9405ecc8640514d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -8263,7 +8263,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345917939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55073446, y: -0.974, z: -0.10731876}
+  m_LocalPosition: {x: 1.52, y: -0.954, z: 0.91}
   m_LocalScale: {x: 0.264411, y: 0.2659038, z: 0.28021303}
   m_Children: []
   m_Father: {fileID: 248443231}
@@ -9043,7 +9043,7 @@ Transform:
   m_GameObject: {fileID: 391344398}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.72373444, y: -1.1918261, z: 1.9066813}
-  m_LocalScale: {x: 6.7375855, y: 6.7375894, z: 0.23571551}
+  m_LocalScale: {x: 6.7375855, y: 8.703636, z: 0.23571551}
   m_Children: []
   m_Father: {fileID: 248443231}
   m_RootOrder: 13
@@ -11265,8 +11265,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 502524837}
   m_LocalRotation: {x: 0.003705202, y: -0.021070097, z: 0.21565844, w: 0.9762345}
-  m_LocalPosition: {x: -1.096, y: 0.297, z: 0.991}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.717, y: 0.474, z: 1.009}
+  m_LocalScale: {x: 0.15204899, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248443231}
   m_RootOrder: 26
@@ -15279,7 +15279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
-  DistanceToEngage: 0.075
+  DistanceToEngage: 0.01
   ButtonDown: 0
   ButtonUp: 0
   ButtonIsPushed: 0
@@ -15300,7 +15300,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ae6625b1fde042b09db06cb5d1ed46b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -16721,6 +16721,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017687302, y: 0.017784735, z: 0.009758167}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &700781019 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
+  m_PrefabInternal: {fileID: 831952849}
+--- !u!64 &700781023
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700781019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
 --- !u!1001 &708675149
 Prefab:
   m_ObjectHideFlags: 0
@@ -20993,24 +21011,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
   m_PrefabInternal: {fileID: 831952849}
---- !u!1 &831952851 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100004, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
-  m_PrefabInternal: {fileID: 831952849}
---- !u!64 &831952852
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 831952851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
 --- !u!1001 &839171496
 Prefab:
   m_ObjectHideFlags: 0
@@ -31957,6 +31957,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017687302, y: 0.017784735, z: 0.009758167}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1316445910 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
+  m_PrefabInternal: {fileID: 831952849}
+--- !u!64 &1316445914
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316445910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
 --- !u!1001 &1320079664
 Prefab:
   m_ObjectHideFlags: 0
@@ -34728,6 +34746,21 @@ Prefab:
       propertyPath: Rigidbody
       value: 
       objectReference: {fileID: 1326300865}
+    - target: {fileID: 114552933443883930, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: EnableKinematicOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114552933443883930, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: EnableGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114552933443883930, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: DropDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
@@ -35797,28 +35830,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 87403507033f0034eab7ba172e32535d, type: 3}
   m_PrefabInternal: {fileID: 1467449032}
---- !u!1 &1467524819 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
-  m_PrefabInternal: {fileID: 831952849}
---- !u!4 &1467524820 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400002, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
-  m_PrefabInternal: {fileID: 831952849}
---- !u!64 &1467524823
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1467524819}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 48d50f41a4dbdb14abaf14f1de9d6c07, type: 3}
 --- !u!1001 &1470367120
 Prefab:
   m_ObjectHideFlags: 0
@@ -39825,7 +39836,7 @@ MonoBehaviour:
   radioNoise: {fileID: 0}
   engineOnSound: {fileID: 1573703111}
   outsideWorld: {fileID: 340735100}
-  cockpit: {fileID: 1467524820}
+  cockpit: {fileID: 0}
   radioMessageDelay: 0.5
   blinkTimer: 0
   sliderImg: {fileID: 2053521512}
@@ -41962,7 +41973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
-  DistanceToEngage: 0.075
+  DistanceToEngage: 0.01
   ButtonDown: 0
   ButtonUp: 0
   ButtonIsPushed: 0
