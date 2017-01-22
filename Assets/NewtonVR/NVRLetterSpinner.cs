@@ -6,6 +6,9 @@ namespace NewtonVR
 {
     public class NVRLetterSpinner : NVRInteractableRotator
     {
+        public ShipManagerScript ship;
+        public GameObject universe;
+
         private static string LETTERLIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZ?";
 
         private float SnapDistance = 1f;
@@ -18,6 +21,8 @@ namespace NewtonVR
             base.Awake();
 
             RungAngleInterval = 360f / (float)LETTERLIST.Length;
+
+            
         }
 
         protected override void FixedUpdate()
@@ -56,6 +61,8 @@ namespace NewtonVR
             }
 
             LastAngularVelocity = this.Rigidbody.angularVelocity;
+
+            ship.heading -= LastAngularVelocity.z * Time.deltaTime;
         }
 
         public override void BeginInteraction(NVRHand hand)

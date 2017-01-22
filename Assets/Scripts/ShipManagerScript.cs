@@ -160,12 +160,13 @@ public class ShipManagerScript : MonoBehaviour {
 			}
 
 			outsideWorld.position = outsideWorld.position + new Vector3 (0, 0, -shipSpeed * Time.deltaTime);
+            outsideWorld.GetComponent<UniverseTilerScript>().ChangePos(new Vector3(0, 0, -shipSpeed * Time.deltaTime));
 		}
 
 		if (shipSpeed > 50) {
 			altitude += (shipSpeed - 50) * Time.deltaTime;
 
-			cockpit.position = new Vector3 (cockpit.position.x, Mathf.Min(altitude, 10), cockpit.position.z);
+			outsideWorld.transform.Translate(new Vector3(outsideWorld.position.x, -3.8f - Mathf.Min(altitude / 10, 60), outsideWorld.position.z));
 		}
 
 //		heading += Random.Range (-2, 3);
@@ -174,10 +175,10 @@ public class ShipManagerScript : MonoBehaviour {
 			heading = -75;
 		if (heading > 75)
 			heading = 75;
+        
+        outsideWorld.transform.localEulerAngles = new Vector3(0, 0, heading / 5);
 
-		cockpit.localEulerAngles = new Vector3 (0, 0, heading / 3);
-
-		if (Input.GetAxis ("Vertical") > 0) {
+        if (Input.GetAxis ("Vertical") > 0) {
 			IgniteEngine ();
 		}
     }
