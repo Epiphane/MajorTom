@@ -20,7 +20,7 @@ namespace NewtonVR.Example {
             if (Button.ButtonUp) {
                 if (flameoHotMan) {
                     flameoHotMan.StopParticleSystems();
-                    flameoHotMan.GetComponent<AudioSource>().Pause();
+                    flameoHotMan.GetComponent<AudioSource>().Stop();
                 }
             }
         }
