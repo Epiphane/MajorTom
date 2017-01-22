@@ -2,21 +2,24 @@
 using System.Collections;
 using NewtonVR;
 
-namespace NewtonVR.Example
-{
-    public class NVRExampleSpawner : MonoBehaviour
-    {
+namespace NewtonVR.Example {
+    public class NVRExampleSpawner : MonoBehaviour {
         public NVRButton Button;
+        public DigitalRuby.PyroParticles.FireBaseScript flameoHotMan;
 
         public GameObject ToCopy;
 
-        private void Update()
-        {
-            if (Button.ButtonDown)
-            {
-                GameObject newGo = GameObject.Instantiate(ToCopy);
-                newGo.transform.position = this.transform.position + new Vector3(0, 1, 0);
-                newGo.transform.localScale = ToCopy.transform.lossyScale;
+        private void Update() {
+            if (Button.ButtonDown) {
+                if (flameoHotMan) {
+                    flameoHotMan.StartParticleSystems();
+                }
+            }
+
+            if (Button.ButtonUp) {
+                if (flameoHotMan) {
+                    flameoHotMan.StopParticleSystems();
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace NewtonVR
 {
@@ -35,6 +36,10 @@ namespace NewtonVR
         private Quaternion InitialLocalRotation;
         private Quaternion ConstrainedRotation;
 
+        private bool touchedByAnother = false;
+
+        public GameObject[] yourself;
+
         private void Awake()
         {
             InitialPosition = new GameObject(string.Format("[{0}] Initial Position", this.gameObject.name)).transform;
@@ -57,6 +62,27 @@ namespace NewtonVR
             ConstrainedRotation = InitialLocalRotation;
         }
 
+        float timeTillTouchReset = 0;
+
+        void OnCollisionEnter(Collision collision) {
+            foreach (ContactPoint contact in collision.contacts) {
+                if (System.Array.IndexOf(yourself, contact.otherCollider.gameObject) < 0) {
+                    Debug.Log("We DIIID ITT");
+                    touchedByAnother = true;
+                    timeTillTouchReset = 0.5f;
+                }
+            }
+        }
+
+        //private void OnCollisionExit(Collision collision) {
+        //    foreach (ContactPoint contact in collision.contacts) {
+        //        if (contact.otherCollider.transform.parent.name.StartsWith("ViveCollider")) {
+        //            Debug.Log("We DIIID ITT");
+        //            touchedByAnother = false;
+        //        }
+        //    }
+        //}
+
         private void FixedUpdate()
         {
             ConstrainPosition();
@@ -69,8 +95,14 @@ namespace NewtonVR
 
         private void Update()
         {
+            timeTillTouchReset -= Time.deltaTime;
+
+            if (timeTillTouchReset < 0) {
+                touchedByAnother = false;
+            }
+
             ButtonWasPushed = ButtonIsPushed;
-            ButtonIsPushed = CurrentDistance > DistanceToEngage;
+            ButtonIsPushed = CurrentDistance > DistanceToEngage && touchedByAnother;
 
             if (ButtonWasPushed == false && ButtonIsPushed == true)
                 ButtonDown = true;
