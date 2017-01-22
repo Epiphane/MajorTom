@@ -19,8 +19,9 @@ public class Edibles : MonoBehaviour {
         howFar = Vector3.Distance(transform.position, urHead.transform.position);
 
         if (howFar < eatDist) {
-            GameObject.Instantiate(om);
-            GameObject.Destroy(this.gameObject);
+            Destroy(gameObject);
+            var nom = GameObject.Instantiate(om);
+            nom.GetComponent<AudioSource>().Play();
         }
      }
 }
