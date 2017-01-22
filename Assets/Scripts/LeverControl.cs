@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LeverControl : MonoBehaviour {
-	
-	public UnityEvent shipFunction;
+public class LeverControl : NewtonVR.NVRLever
+{
+    public UnityEvent shipFunction;
 
     private void Start()
-	{
-		if (shipFunction == null) {
-			shipFunction = new UnityEvent ();
-		}
-
-        GetComponent<VRTK.VRTK_Control>().defaultEvents.OnValueChanged.AddListener(HandleChange);
-        HandleChange(GetComponent<VRTK.VRTK_Control>().GetValue(), GetComponent<VRTK.VRTK_Control>().GetNormalizedValue());
+    {
+        base.Start();
+        if (shipFunction == null)
+        {
+            shipFunction = new UnityEvent();
+        }
     }
 
-	private void HandleChange(float value, float normalizedValue)
+    public void Update()
     {
-		for(int i = 0 ; i < shipFunction.GetPersistentEventCount();i++ ){    
-			((MonoBehaviour)shipFunction.GetPersistentTarget(i))
-				.SendMessage(shipFunction.GetPersistentMethodName(i), normalizedValue);
-		}
+        base.Update();
+
+        if (LeverEngaged)
+        {
+            shipFunction.Invoke();
+        }
     }
 }

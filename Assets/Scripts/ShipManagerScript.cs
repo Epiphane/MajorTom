@@ -102,16 +102,16 @@ public class ShipManagerScript : MonoBehaviour {
 			tutorialState = 4;
 		}
 
-		if (tutorialState == 5 && radioMessageDelay <= 0) {
-			PlayOnRadio (spacebearWarning);
+		//if (tutorialState == 5 && radioMessageDelay <= 0) {
+		//	PlayOnRadio (spacebearWarning);
 
-			tutorialState = 6;
-		}
+		//	tutorialState = 6;
+		//}
 
-		if (tutorialState == 6 && temperature >= GOOD_TEMP - 15) {
+		if (tutorialState == 5 && temperature >= GOOD_TEMP - 15) {
 			PlayOnRadio (heatedUpMessage);
 
-			tutorialState = 7;
+			tutorialState = 6;
 		}
 
 		// Heat Engine
@@ -147,13 +147,17 @@ public class ShipManagerScript : MonoBehaviour {
 		}
 	}
 
-    public void PullLever (int leverId) {
-    }
-
 	public void IgniteEngine () {
         Debug.Log("ENGINE ON");
         engineOn = true;
 	}
+
+    public void DisengageBrakes() {
+        Debug.Log("NO BRAKES ON THE SHIP TRAIN");
+        if (engineOn && temperature > GOOD_TEMP - 15) {
+            thrusting = true;
+        }
+    }
 
 	public void SetThrottle (float value) {
 	}
