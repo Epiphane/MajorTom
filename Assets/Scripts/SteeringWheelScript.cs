@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SteeringWheelScript : NewtonVR.NVRLetterSpinner {
 
-	public ShipManagerScript ship;
+	public ShipManagerScript ship2;
 	public float damping = 1;
 
 	// Use this for initialization

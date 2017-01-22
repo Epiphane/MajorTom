@@ -11,13 +11,7 @@ public class UniverseTilerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-<<<<<<< HEAD
-        //tilarinos.Sort
-
-
-=======
         tilarinos.Sort((x, y) => x.transform.position.z.CompareTo(y.transform.position.z));
->>>>>>> 3f0fded... good.
     }
 	
 	// Update is called once per frame
