@@ -18,8 +18,8 @@ public class EngineScreenScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		stabilizers.text = ship.stabilized ? "Stabilized" : "Wobbling";
-		stabilizers.color = ship.stabilized ? Color.green : Color.red;
+		stabilizers.text = ship.engineOn ? "On" : "Off";
+		stabilizers.color = ship.engineOn ? Color.green : Color.red;
 
 		thrusters.text = ship.thrusting ? "Thrusting" : "Disengaged";
 		thrusters.color = ship.thrusting ? Color.green : Color.red;
@@ -37,7 +37,7 @@ public class EngineScreenScript : MonoBehaviour {
 			fuel.color = Color.red;
 		}
 
-		temperature.text = ship.temperature.ToString () + "°";
+		temperature.text = Mathf.Floor(ship.temperature).ToString () + "°";
 		float diff = Mathf.Abs(ship.temperature - ship.GOOD_TEMP);
 		temperature.color = Color.green;
 		if (diff > 20)

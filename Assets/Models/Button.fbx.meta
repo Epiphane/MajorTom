@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: 250a27c9f955e8345b6849adca2600da
-timeCreated: 1485044117
+guid: ef93213f7f188ad4d8c895b0db3aee21
+timeCreated: 1485054090
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: FireEnhancer
-    100004: Mesh (2)
     400000: //RootNode
-    400002: FireEnhancer
-    400004: Mesh (2)
-    2300000: FireEnhancer
-    2300002: Mesh (2)
-    2300004: //RootNode
-    3300000: FireEnhancer
-    3300002: Mesh (2)
-    3300004: //RootNode
-    4300000: FireEnhancer
-    4300002: Mesh (2)
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -61,7 +52,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

@@ -1,24 +1,62 @@
 fileFormatVersion: 2
-guid: 250a27c9f955e8345b6849adca2600da
-timeCreated: 1485044117
+guid: 39e0912287da8d149bc873bfe7f04d48
+timeCreated: 1485059115
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: FireEnhancer
-    100004: Mesh (2)
-    400000: //RootNode
-    400002: FireEnhancer
-    400004: Mesh (2)
-    2300000: FireEnhancer
-    2300002: Mesh (2)
-    2300004: //RootNode
-    3300000: FireEnhancer
-    3300002: Mesh (2)
-    3300004: //RootNode
-    4300000: FireEnhancer
-    4300002: Mesh (2)
+    100000: Button 1
+    100002: Button 2
+    100004: Button 3
+    100006: Button 4
+    100008: Button 5
+    100010: Button 6
+    100012: Button 7
+    100014: Button 8
+    100016: //RootNode
+    100018: ButtonBase
+    100020: Mesh
+    400000: Button 1
+    400002: Button 2
+    400004: Button 3
+    400006: Button 4
+    400008: Button 5
+    400010: Button 6
+    400012: Button 7
+    400014: Button 8
+    400016: //RootNode
+    400018: ButtonBase
+    400020: Mesh
+    2300000: Button 1
+    2300002: Button 2
+    2300004: Button 3
+    2300006: Button 4
+    2300008: Button 5
+    2300010: Button 6
+    2300012: Button 7
+    2300014: Button 8
+    2300016: ButtonBase
+    2300018: Mesh
+    3300000: Button 1
+    3300002: Button 2
+    3300004: Button 3
+    3300006: Button 4
+    3300008: Button 5
+    3300010: Button 6
+    3300012: Button 7
+    3300014: Button 8
+    3300016: ButtonBase
+    3300018: Mesh
+    4300000: Mesh
+    4300002: ButtonBase
+    4300004: Button 1
+    4300006: Button 2
+    4300008: Button 3
+    4300010: Button 4
+    4300012: Button 5
+    4300014: Button 6
+    4300016: Button 8
+    4300018: Button 7
   materials:
     importMaterials: 1
     materialName: 0
@@ -61,7 +99,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
