@@ -17,7 +17,7 @@ namespace NewtonVR.Example
 	
 	    private void Update()
         {
-            if (Control.LeverEngaged == true)
+            if (Control && Control.LeverEngaged == true)
             {
                 StartCoroutine(DoBlastOff());
             }
