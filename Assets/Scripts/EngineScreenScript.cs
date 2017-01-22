@@ -39,10 +39,14 @@ public class EngineScreenScript : MonoBehaviour {
 
 		temperature.text = Mathf.Floor(ship.temperature).ToString () + "°";
 		float diff = Mathf.Abs(ship.temperature - ship.GOOD_TEMP);
-		temperature.color = Color.green;
-		if (diff > 20)
+		temperature.color = Color.blue;
+		if (ship.temperature - ship.GOOD_TEMP > -20)
+			temperature.color = Color.cyan;
+		if (ship.temperature - ship.GOOD_TEMP > 0)
+			temperature.color = Color.green;
+		if (ship.temperature - ship.GOOD_TEMP > 20)
 			temperature.color = Color.yellow;
-		if (diff > 40)
+		if (ship.temperature - ship.GOOD_TEMP > 40)
 			temperature.color = Color.red;
 	}
 }

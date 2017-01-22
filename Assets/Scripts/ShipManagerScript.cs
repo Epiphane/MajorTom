@@ -8,6 +8,8 @@ public class ShipManagerScript : MonoBehaviour {
 	public float GOOD_TEMP = 45; // CELSIUS?!?
 
 	public float shipSpeed = 0;
+	public float maxSpeed = 100;
+	public float accel = 3;
 	public float altitude = 0;
 	public float wheelsRaised = 0;
 
@@ -37,6 +39,9 @@ public class ShipManagerScript : MonoBehaviour {
 
 	public AudioSource staticNoise;
 	public AudioSource radioNoise;
+
+	public Transform outsideWorld;
+	public Transform cockpit;
 
 	public float radioMessageDelay = 0.5f;
 
@@ -127,6 +132,23 @@ public class ShipManagerScript : MonoBehaviour {
 
 				radioMessageDelay = 25;
 			}
+		}
+
+		if (thrusting) {
+			if (shipSpeed < maxSpeed) {
+				shipSpeed += accel * Time.deltaTime;
+				if (shipSpeed > maxSpeed) {
+					shipSpeed = maxSpeed;
+				}
+			}
+
+			outsideWorld.position = outsideWorld.position + new Vector3 (0, 0, -shipSpeed * Time.deltaTime);
+		}
+
+		if (shipSpeed > 50) {
+			altitude += (shipSpeed - 50) * Time.deltaTime;
+
+			cockpit.position = new Vector3 (cockpit.position.x, Mathf.Min(altitude, 10), cockpit.position.z);
 		}
 
 //		heading += Random.Range (-2, 3);
