@@ -24,5 +24,9 @@ public class ButtonControl : NewtonVR.NVRButton {
 	private void handlePush()
 	{
 		shipFunction.Invoke ();
+
+		if (GetComponent<AudioSource> ()) {
+			GetComponent<AudioSource> ().Play ();
+		}
 	}
 }
