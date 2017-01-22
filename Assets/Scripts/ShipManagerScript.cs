@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipManagerScript : MonoBehaviour {
 	
@@ -39,11 +40,16 @@ public class ShipManagerScript : MonoBehaviour {
 
 	public AudioSource staticNoise;
 	public AudioSource radioNoise;
+	public AudioSource engineOnSound;
 
 	public Transform outsideWorld;
 	public Transform cockpit;
 
 	public float radioMessageDelay = 0.5f;
+
+    public float blinkTimer = 0; // FOR DEMO BUT WHO CARES ANYMORE
+    public Image sliderImg; // ALSO WHO CARES
+	public Image arrowImg; // ALSO ALSO WHO CARES
 
 	// Use this for initialization
 	void Start () {
@@ -71,13 +77,24 @@ public class ShipManagerScript : MonoBehaviour {
 		// Update radio connection
 		radioConnection = 1 - Mathf.Min(2 * Mathf.Abs (radioAmplitude - correctAmplitude) / correctAmplitude, 1);
 
-		staticNoise.volume = Mathf.Min(1, 1.1f - radioConnection);
+		staticNoise.volume = Mathf.Min(1, 1f - radioConnection);
 		if (radioNoise != null)
 			radioNoise.volume = Mathf.Sqrt(radioConnection);
 
-		// Can we talk?
+        // Can we talk?
+//        sliderImg.color = Color.white;
+//        sliderImg.transform.localScale = new Vector3(2, 1, 1);
+		arrowImg.enabled = false;
 		if (tutorialState == 0) {
-			if (radioConnection < minimumConnRequired) {
+            // COMMENCE HACK
+            blinkTimer += Time.deltaTime;
+            float perc = 0.5f + Mathf.Sin(blinkTimer * 2) / 2;
+//            sliderImg.color = new Color(perc, perc, perc);
+//			sliderImg.transform.localScale = (1 + perc / 2) * new Vector3(2, 1, 1);
+			arrowImg.enabled = true;
+			arrowImg.rectTransform.localPosition = new Vector3 (10 * perc, -62 - 10 * perc, 0);
+
+            if (radioConnection < minimumConnRequired) {
 				radioMessageDelay = 0.5f;
 			} else if (radioMessageDelay <= 0) {
 				tutorialState = 1;
@@ -157,6 +174,12 @@ public class ShipManagerScript : MonoBehaviour {
 			heading = -75;
 		if (heading > 75)
 			heading = 75;
+
+		cockpit.localEulerAngles = new Vector3 (0, 0, heading / 3);
+
+		if (Input.GetAxis ("Vertical") > 0) {
+			IgniteEngine ();
+		}
     }
 
 	public void AcknowledgeTransmission () {
@@ -172,6 +195,8 @@ public class ShipManagerScript : MonoBehaviour {
 	public void IgniteEngine () {
         Debug.Log("ENGINE ON");
         engineOn = true;
+
+		engineOnSound.Play ();
 	}
 
     public void DisengageBrakes() {
