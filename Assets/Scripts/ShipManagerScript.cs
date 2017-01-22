@@ -19,25 +19,133 @@ public class ShipManagerScript : MonoBehaviour {
 
 	public float heading = 0; // 0 is perfect;
 
+	public float radioAmplitude = 0;
+	public float correctAmplitude = 90;
+	public float radioConnection = 0;
+	public float minimumConnRequired = 0.5f;
+
+	public int tutorialState = 0;
+	public AudioClip firstMessage;
+	public AudioClip secondMessage;
+	public AudioClip welcomeMessage;
+	public AudioClip proteinPillMessage;
+	public AudioClip proteinPillMessage2;
+	public AudioClip heatingUpMessage;
+	public AudioClip spacebearWarning;
+	public AudioClip heatedUpMessage;
+	public AudioClip liftoffMessage;
+
+	public AudioSource staticNoise;
+	public AudioSource radioNoise;
+
+	public float radioMessageDelay = 0.5f;
+
 	// Use this for initialization
 	void Start () {
+		if (staticNoise == null) {
+			staticNoise = GetComponent<AudioSource> ();
+		}
+
+		if (radioNoise == null) {
+			radioNoise = transform.GetChild (0).GetComponent<AudioSource> ();
+		}
+	}
+
+	void PlayOnRadio (AudioClip sound) {
+		radioNoise.clip = sound;
+		radioNoise.Play ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		// Update Radio messaging
+		if (radioMessageDelay > 0) {
+			radioMessageDelay -= Time.deltaTime;
+		}
+
+		// Update radio connection
+		radioConnection = 1 - Mathf.Min(2 * Mathf.Abs (radioAmplitude - correctAmplitude) / correctAmplitude, 1);
+
+		staticNoise.volume = Mathf.Min(1, 1.1f - radioConnection);
+		if (radioNoise != null)
+			radioNoise.volume = Mathf.Sqrt(radioConnection);
+
+		// Can we talk?
+		if (tutorialState == 0) {
+			if (radioConnection < minimumConnRequired) {
+				radioMessageDelay = 0.5f;
+			} else if (radioMessageDelay <= 0) {
+				tutorialState = 1;
+				PlayOnRadio (firstMessage);
+
+				radioMessageDelay = 5;
+			}
+		}
+
+		if (tutorialState == 1) {
+			if (radioMessageDelay <= 0) {
+				PlayOnRadio (secondMessage);
+				radioMessageDelay = 9;
+			}
+		}
+
+		if (tutorialState == 2 && radioMessageDelay <= 0) {
+			PlayOnRadio (proteinPillMessage);
+
+			tutorialState = 3;
+			radioMessageDelay = 10;
+		}
+
+		if (tutorialState == 3 && radioMessageDelay <= 0) {
+			PlayOnRadio (proteinPillMessage2);
+
+			tutorialState = 4;
+		}
+
+		if (tutorialState == 5 && radioMessageDelay <= 0) {
+			PlayOnRadio (spacebearWarning);
+
+			tutorialState = 6;
+		}
+
+		if (tutorialState == 6 && temperature >= GOOD_TEMP - 15) {
+			PlayOnRadio (heatedUpMessage);
+
+			tutorialState = 7;
+		}
+
+		// Heat Engine
+		if (engineOn) {
+			float tpersec = 0.1f + (temperature < GOOD_TEMP ? 0.9f : 0f);
+
+			temperature += tpersec * Time.deltaTime;
+
+			if (tutorialState == 4) {
+				tutorialState = 5;
+
+				PlayOnRadio (heatingUpMessage);
+
+				radioMessageDelay = 25;
+			}
+		}
+
 //		heading += Random.Range (-2, 3);
 
 		if (heading < -75)
 			heading = -75;
 		if (heading > 75)
 			heading = 75;
-
-        if (engineOn) {
-            float tpersec = 0.1f + (temperature < GOOD_TEMP ? 0.9f : 0f);
-
-            temperature += tpersec * Time.deltaTime;
-        }
     }
+
+	public void AcknowledgeTransmission () {
+		if (tutorialState == 1) {
+			tutorialState = 2;
+
+			PlayOnRadio (welcomeMessage);
+
+			radioMessageDelay = 21;
+		}
+	}
 
     public void PullLever (int leverId) {
     }
