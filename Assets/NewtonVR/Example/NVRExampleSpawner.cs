@@ -13,12 +13,14 @@ namespace NewtonVR.Example {
             if (Button.ButtonDown) {
                 if (flameoHotMan) {
                     flameoHotMan.StartParticleSystems();
+                    flameoHotMan.GetComponent<AudioSource>().Play();
                 }
             }
 
             if (Button.ButtonUp) {
                 if (flameoHotMan) {
                     flameoHotMan.StopParticleSystems();
+                    flameoHotMan.GetComponent<AudioSource>().Pause();
                 }
             }
         }

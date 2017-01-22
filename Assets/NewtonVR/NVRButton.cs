@@ -67,21 +67,20 @@ namespace NewtonVR
         void OnCollisionEnter(Collision collision) {
             foreach (ContactPoint contact in collision.contacts) {
                 if (System.Array.IndexOf(yourself, contact.otherCollider.gameObject) < 0) {
-                    Debug.Log("We DIIID ITT");
                     touchedByAnother = true;
                     timeTillTouchReset = 0.5f;
                 }
             }
         }
 
-        //private void OnCollisionExit(Collision collision) {
-        //    foreach (ContactPoint contact in collision.contacts) {
-        //        if (contact.otherCollider.transform.parent.name.StartsWith("ViveCollider")) {
-        //            Debug.Log("We DIIID ITT");
-        //            touchedByAnother = false;
-        //        }
-        //    }
-        //}
+        private void OnCollisionStay(Collision collision) {
+            foreach (ContactPoint contact in collision.contacts) {
+                if (System.Array.IndexOf(yourself, contact.otherCollider.gameObject) < 0) {
+                    touchedByAnother = true;
+                    timeTillTouchReset = 0.5f;
+                }
+            }
+        }
 
         private void FixedUpdate()
         {

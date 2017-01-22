@@ -98,7 +98,7 @@ namespace DigitalRuby.PyroParticles
         {
             if (AudioSource != null)
             {
-                AudioSource.Play();
+                //AudioSource.Play();
             }
 
             // precalculate so we can multiply instead of divide every frame
@@ -109,7 +109,7 @@ namespace DigitalRuby.PyroParticles
             CreateExplosion(gameObject.transform.position, ForceRadius, ForceAmount);
 
             // start any particle system that is not in the list of manual start particle systems
-            StartParticleSystems();
+            //StartParticleSystems();
 
             // If we implement the ICollisionHandler interface, see if any of the children are forwarding
             // collision events. If they are, hook into them.
