@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: da85eefd96d1fd24f93975755d0a5c5b
-timeCreated: 1485054246
+guid: 61482d8eafe49c7409676f722b8ffcb9
+timeCreated: 1485062864
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Mesh (2)
-    4300002: ButtonBase
+    4300000: Track
   materials:
     importMaterials: 1
     materialName: 0
