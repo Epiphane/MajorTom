@@ -8,8 +8,6 @@ public class MultiNumFlapperScript : MonoBehaviour {
 
 	private NumFlapperScript[] children;
 
-	private int myValue = 0;
-
 	// Use this for initialization
 	void Start () {
 		children = GetComponentsInChildren<NumFlapperScript> ();
@@ -27,13 +25,9 @@ public class MultiNumFlapperScript : MonoBehaviour {
 
 			num /= 10;
 		}
-
-		myValue = num;
 	}
 
 	public void FlipTo (int num) {
-		myValue = num;
-
 		for (int digit = children.Length - 1; digit >= 0; digit--) {
 			int value = num % 10;
 			children [digit].FlipTo (value);

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipManagerScript : MonoBehaviour {
-
-    public MajorTomTextDisplayScript majorTomDisplay;
-
+	
 	public float MAX_FUEL = 30; // Gallons?!?
 	public float GOOD_TEMP = 90; // CELSIUS?!?
 
@@ -22,7 +20,6 @@ public class ShipManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        majorTomDisplay.Say("You need to pull lever 5 stat!!");
 	}
 	
 	// Update is called once per frame
@@ -36,12 +33,6 @@ public class ShipManagerScript : MonoBehaviour {
 	}
 
     public void PullLever (int leverId) {
-        if (leverId == 5) {
-            majorTomDisplay.Say("Good job!");
-        }
-        else {
-            majorTomDisplay.Say("That's Not Lever 5 dummy!");
-        }
     }
 
 	public void IgniteEngine () {
