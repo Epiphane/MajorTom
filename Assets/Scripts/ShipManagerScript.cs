@@ -159,14 +159,16 @@ public class ShipManagerScript : MonoBehaviour {
 				}
 			}
 
-			outsideWorld.position = outsideWorld.position + new Vector3 (0, 0, -shipSpeed * Time.deltaTime);
+			//outsideWorld.position = outsideWorld.position + new Vector3 (0, 0, -shipSpeed * Time.deltaTime);
             outsideWorld.GetComponent<UniverseTilerScript>().ChangePos(new Vector3(0, 0, -shipSpeed * Time.deltaTime));
 		}
 
 		if (shipSpeed > 50) {
 			altitude += (shipSpeed - 50) * Time.deltaTime;
 
-			outsideWorld.transform.Translate(new Vector3(outsideWorld.position.x, -3.8f - Mathf.Min(altitude / 10, 60), outsideWorld.position.z));
+            var lol = outsideWorld.transform.position;
+            lol.y -= Mathf.Pow((shipSpeed - 50) * Time.deltaTime, 0.02f)/10;
+            outsideWorld.transform.position = lol;
 		}
 
 //		heading += Random.Range (-2, 3);
