@@ -5,11 +5,8 @@ using UnityEngine;
 public class WaveManScript : MonoBehaviour {
 
 	public float speed = 30f;
-	public float currentAmp = 60.0f;
-	public float correctAmp = 90.0f;
 
-	public AudioSource staticNoise;
-	public AudioSource radioNoise;
+	public ShipManagerScript ship;
 
 	private Vector3 root;
 	private float offset = 0;
@@ -33,11 +30,8 @@ public class WaveManScript : MonoBehaviour {
 		}
 
 		transform.localPosition = root + new Vector3(offset, 0, 0);
-		transform.localScale = new Vector3 (1, 0.75f * currentAmp / correctAmp, 1);
-		float diff = Mathf.Min(2 * Mathf.Abs (currentAmp - correctAmp) / correctAmp, 1);
-
-		staticNoise.volume = diff;
-		radioNoise.volume = 1 - Mathf.Sqrt(diff);
+		transform.localScale = new Vector3 (1, 0.75f * ship.radioAmplitude / ship.correctAmplitude, 1);
+		float diff = 1 - ship.radioConnection;
 
 		for (int i = 1; i < children.Length; i++) {
 			children [i].localPosition = new Vector3((i - 2) * spriteWidth, 0, 0);
