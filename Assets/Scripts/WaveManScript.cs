@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManScript : MonoBehaviour {
 
@@ -8,16 +9,17 @@ public class WaveManScript : MonoBehaviour {
 
 	public ShipManagerScript ship;
 
-	private Vector3 root;
 	private float offset = 0;
 	private float spriteWidth;
-	private Transform[] children;
+	private SpriteRenderer[] children;
+	public Transform waveContainer;
+
+	public GameObject noConnectionText;
+	private float blinkTime = 0;
 
 	// Use this for initialization
 	void Start () {
-		root = transform.localPosition;
-
-		children = GetComponentsInChildren<Transform> ();
+		children = GetComponentsInChildren<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -29,13 +31,19 @@ public class WaveManScript : MonoBehaviour {
 			offset -= spriteWidth;
 		}
 
-		transform.localPosition = root + new Vector3(offset, 0, 0);
-		transform.localScale = new Vector3 (1, 0.75f * ship.radioAmplitude / ship.correctAmplitude, 1);
+		if (ship.radioConnection < ship.minimumConnRequired) {
+			blinkTime += Time.deltaTime;
+			noConnectionText.SetActive (Mathf.Floor(blinkTime * 3) % 2 == 0);
+		} else {
+			noConnectionText.SetActive (false);
+		}
+
+		waveContainer.localPosition = new Vector3(offset, 0, 0);
+		waveContainer.localScale = new Vector3 (1, 0.75f * ship.radioAmplitude / ship.correctAmplitude, 1);
 		float diff = 1 - ship.radioConnection;
 
-		for (int i = 1; i < children.Length; i++) {
-			children [i].localPosition = new Vector3((i - 2) * spriteWidth, 0, 0);
-			children [i].GetComponent<SpriteRenderer> ().color = new Color (Mathf.Sqrt(diff), Mathf.Sqrt(1 - diff), 0);
+		for (int i = 0; i < children.Length; i++) {
+			children [i].color = new Color (Mathf.Sqrt(diff), Mathf.Sqrt(1 - diff), 0);
 		}
 
 	}
