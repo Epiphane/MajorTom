@@ -92,7 +92,7 @@ namespace NewtonVR
             this.Rigidbody.velocity = PositionDelta * PositionMagic * Time.deltaTime;
         }
 
-        private void Update()
+        public virtual void Update()
         {
             timeTillTouchReset -= Time.deltaTime;
 
