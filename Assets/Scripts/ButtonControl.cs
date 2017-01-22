@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonControl : MonoBehaviour {
+public class ButtonControl : NewtonVR.NVRButton {
 	public UnityEvent shipFunction;
 
 	private void Start()
@@ -12,6 +12,14 @@ public class ButtonControl : MonoBehaviour {
 			shipFunction = new UnityEvent ();
 		}
 	}
+
+    public override void Update() {
+        base.Update();
+
+        if (ButtonDown) {
+            handlePush();
+        }
+    }
 
 	private void handlePush()
 	{
