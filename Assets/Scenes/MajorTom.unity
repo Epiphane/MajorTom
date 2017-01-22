@@ -17447,6 +17447,11 @@ Prefab:
       propertyPath: m_Name
       value: NVRExampleLever (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 82327486805336984, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b5640d07bf2c4d2eaea4bfc663215de, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
   m_IsPrefabParent: 0
@@ -25212,6 +25217,11 @@ Prefab:
       propertyPath: Rigidbody
       value: 
       objectReference: {fileID: 1408636955}
+    - target: {fileID: 82327486805336984, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ee91b215cf6a491780ef29ad0ae78fe, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
@@ -25519,7 +25529,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1416a844f3c61435fadda46e6623311e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30675c6b1fc3197449be2a38f60c98ec, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -44024,6 +44034,11 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82327486805336984, guid: 313157ae7bfd1d847991eeb3e682a237,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0361421bf8792433793a5136c825aa1e, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 313157ae7bfd1d847991eeb3e682a237, type: 2}
