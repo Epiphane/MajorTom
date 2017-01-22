@@ -24,7 +24,7 @@ public class PoppinBottlesMang : MonoBehaviour {
             if (timeTillPill < 0 && open) {
                 timeTillPill = MAX_TIME_TO_PILL;
                 // spawn pill
-                GameObject.Instantiate(pillTemplate, transform.position + (transform.localRotation * (Vector3.down * diffDown)), Quaternion.AngleAxis(0, Vector3.down));
+                GameObject.Instantiate(pillTemplate, transform.position + (transform.localRotation * (Vector3.up * diffDown)), Quaternion.AngleAxis(0, Vector3.down));
             }
         }
     }

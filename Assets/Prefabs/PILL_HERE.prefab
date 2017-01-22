@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4007530300100140}
   - component: {fileID: 82610938509385936}
+  - component: {fileID: 114678858945797798}
   m_Layer: 0
   m_Name: Om
   m_TagString: Untagged
@@ -151,7 +152,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 30675c6b1fc3197449be2a38f60c98ec, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -208,7 +209,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -245,8 +246,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urHead: {fileID: 0}
-  eatDist: 3
+  eatDist: 0.1
   om: {fileID: 82610938509385936}
+  howFar: 0
+--- !u!114 &114678858945797798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700342767737002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2b389627aee0e4aa5ff681af2b2611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.5
 --- !u!114 &114906660006087272
 MonoBehaviour:
   m_ObjectHideFlags: 1
