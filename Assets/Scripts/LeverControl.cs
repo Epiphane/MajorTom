@@ -22,6 +22,8 @@ public class LeverControl : NewtonVR.NVRLever
 
         if (LeverEngaged)
         {
+			GetComponent<AudioSource> ().Play ();
+			
             shipFunction.Invoke();
         }
     }
