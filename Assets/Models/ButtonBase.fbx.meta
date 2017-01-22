@@ -6,11 +6,20 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Button
+    100004: ButtonBase
     400000: //RootNode
+    400002: Button
+    400004: ButtonBase
     2300000: //RootNode
+    2300002: Button
+    2300004: ButtonBase
     3300000: //RootNode
+    3300002: Button
+    3300004: ButtonBase
     4300000: Mesh (2)
     4300002: ButtonBase
+    4300004: Button
   materials:
     importMaterials: 1
     materialName: 0

@@ -6,10 +6,26 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Mesh
+    100004: Texture Group
+    100006: CenterSpindle
+    100008: Wheel
     400000: //RootNode
+    400002: Mesh
+    400004: Texture Group
+    400006: CenterSpindle
+    400008: Wheel
     2300000: //RootNode
+    2300002: Mesh
+    2300004: CenterSpindle
+    2300006: Wheel
     3300000: //RootNode
+    3300002: Mesh
+    3300004: CenterSpindle
+    3300006: Wheel
     4300000: Mesh
+    4300002: Wheel
+    4300004: CenterSpindle
   materials:
     importMaterials: 1
     materialName: 0
