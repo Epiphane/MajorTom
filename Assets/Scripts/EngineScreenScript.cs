@@ -10,6 +10,11 @@ public class EngineScreenScript : MonoBehaviour {
 	public Text thrusters;
 	public Text fuel;
 	public Text temperature;
+	public GameObject stabilizerHint;
+	public GameObject thrusterHint;
+	public GameObject fuelHint;
+	public GameObject temperatureHint;
+	private float hintBlink = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +23,16 @@ public class EngineScreenScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		hintBlink += Time.deltaTime;
+		bool hintVisible = (Mathf.Floor (hintBlink * 3) % 2 == 0);
+
 		stabilizers.text = ship.engineOn ? "On" : "Off";
 		stabilizers.color = ship.engineOn ? Color.green : Color.red;
+		stabilizerHint.SetActive (hintVisible && !ship.engineOn);
 
 		thrusters.text = ship.thrusting ? "Thrusting" : "Disengaged";
 		thrusters.color = ship.thrusting ? Color.green : Color.red;
+		thrusterHint.SetActive (hintVisible && ship.engineOn && !ship.thrusting);
 
 		fuel.text = "Full";
 		fuel.color = Color.green;
@@ -36,6 +46,7 @@ public class EngineScreenScript : MonoBehaviour {
 			fuel.text = "Finished";
 			fuel.color = Color.red;
 		}
+		thrusterHint.SetActive (hintVisible && ship.fuel < ship.MAX_FUEL / 3);
 
 		temperature.text = Mathf.Floor(ship.temperature).ToString () + "°";
 		float diff = Mathf.Abs(ship.temperature - ship.GOOD_TEMP);
