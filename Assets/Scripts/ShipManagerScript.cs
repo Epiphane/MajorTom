@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipManagerScript : MonoBehaviour {
 	
@@ -45,6 +46,9 @@ public class ShipManagerScript : MonoBehaviour {
 
 	public float radioMessageDelay = 0.5f;
 
+    public float blinkTimer = 0; // FOR DEMO BUT WHO CARES ANYMORE
+    public Image sliderImg; // ALSO WHO CARES
+
 	// Use this for initialization
 	void Start () {
 		if (staticNoise == null) {
@@ -75,9 +79,17 @@ public class ShipManagerScript : MonoBehaviour {
 		if (radioNoise != null)
 			radioNoise.volume = Mathf.Sqrt(radioConnection);
 
-		// Can we talk?
+        // Can we talk?
+        sliderImg.color = Color.white;
+        sliderImg.transform.localScale = new Vector3(2, 1, 1);
 		if (tutorialState == 0) {
-			if (radioConnection < minimumConnRequired) {
+            // COMMENCE HACK
+            blinkTimer += Time.deltaTime;
+            float perc = 0.5f + Mathf.Sin(blinkTimer * 2) / 2;
+            sliderImg.color = new Color(perc, perc, perc);
+            sliderImg.transform.localScale = (1 + perc / 2) * new Vector3(2, 1, 1);
+
+            if (radioConnection < minimumConnRequired) {
 				radioMessageDelay = 0.5f;
 			} else if (radioMessageDelay <= 0) {
 				tutorialState = 1;
