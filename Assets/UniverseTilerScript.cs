@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class UniverseTilerScript : MonoBehaviour {
 
@@ -10,9 +11,13 @@ public class UniverseTilerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
         //tilarinos.Sort
 
 
+=======
+        tilarinos.Sort((x, y) => x.transform.position.z.CompareTo(y.transform.position.z));
+>>>>>>> 3f0fded... good.
     }
 	
 	// Update is called once per frame
@@ -21,11 +26,15 @@ public class UniverseTilerScript : MonoBehaviour {
 	}
 
     public void ChangePos(Vector3 delta) {
-        offset += delta.z;
+        offset -= delta.z;
         transform.Translate(delta);
 
         if (offset > 675) {
             offset -= 675;
+            var switcher = tilarinos[0];
+            tilarinos.RemoveAt(0);
+            switcher.transform.Translate(new Vector3(0, 0, 675 * (tilarinos.Count + 1)));
+            tilarinos.Add(switcher);
         }
     }
 }
