@@ -8,6 +8,9 @@ public class WaveManScript : MonoBehaviour {
 	public float currentAmp = 60.0f;
 	public float correctAmp = 90.0f;
 
+	public AudioSource staticNoise;
+	public AudioSource radioNoise;
+
 	private Vector3 root;
 	private float offset = 0;
 	private float spriteWidth;
@@ -33,9 +36,12 @@ public class WaveManScript : MonoBehaviour {
 		transform.localScale = new Vector3 (1, 0.75f * currentAmp / correctAmp, 1);
 		float diff = Mathf.Min(2 * Mathf.Abs (currentAmp - correctAmp) / correctAmp, 1);
 
+		staticNoise.volume = diff;
+		radioNoise.volume = 1 - Mathf.Sqrt(diff);
+
 		for (int i = 1; i < children.Length; i++) {
 			children [i].localPosition = new Vector3((i - 2) * spriteWidth, 0, 0);
-			children [i].GetComponent<SpriteRenderer> ().color = new Color (diff, 1 - diff, 0);
+			children [i].GetComponent<SpriteRenderer> ().color = new Color (Mathf.Sqrt(diff), Mathf.Sqrt(1 - diff), 0);
 		}
 
 	}

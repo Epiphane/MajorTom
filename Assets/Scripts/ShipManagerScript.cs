@@ -6,12 +6,19 @@ public class ShipManagerScript : MonoBehaviour {
 
     public MajorTomTextDisplayScript majorTomDisplay;
 
-    private bool needsLever5Pulled = true;
+	public float MAX_FUEL = 30; // Gallons?!?
+	public float GOOD_TEMP = 90; // CELSIUS?!?
 
 	public float shipSpeed = 0;
 	public float altitude = 0;
 	public float wheelsRaised = 0;
-	public float engineHeat = 0;
+
+	public bool stabilized = true;
+	public bool thrusting = false;
+	public float temperature = 0;
+	public float fuel = 30; // Gallons?!?
+
+	public float heading = 0; // 0 is perfect;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +27,16 @@ public class ShipManagerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+//		heading += Random.Range (-2, 3);
+
+		if (heading < -75)
+			heading = -75;
+		if (heading > 75)
+			heading = 75;
 	}
 
     public void PullLever (int leverId) {
         if (leverId == 5) {
-            needsLever5Pulled = false;
             majorTomDisplay.Say("Good job!");
         }
         else {
