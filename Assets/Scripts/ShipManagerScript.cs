@@ -170,7 +170,7 @@ public class ShipManagerScript : MonoBehaviour {
 			if (wasOnGround && altitude >= 75) {
 				PlayOnRadio (liftoffMessage);
 
-				Invoke (StartRadio, 8);
+				Invoke ("StartRadio", 8);
 			}
 
             var lol = outsideWorld.transform.position;
