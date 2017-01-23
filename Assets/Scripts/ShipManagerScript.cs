@@ -41,6 +41,7 @@ public class ShipManagerScript : MonoBehaviour {
 	public AudioSource staticNoise;
 	public AudioSource radioNoise;
 	public AudioSource engineOnSound;
+	public AudioSource FirstRadio;
 
 	public Transform outsideWorld;
 	public Transform cockpit;
@@ -168,6 +169,8 @@ public class ShipManagerScript : MonoBehaviour {
 			altitude += (shipSpeed - 50) * Time.deltaTime;
 			if (wasOnGround && altitude >= 75) {
 				PlayOnRadio (liftoffMessage);
+
+				Invoke (StartRadio, 8);
 			}
 
             var lol = outsideWorld.transform.position;
@@ -214,5 +217,9 @@ public class ShipManagerScript : MonoBehaviour {
     }
 
 	public void SetThrottle (float value) {
+	}
+
+	public void StartRadio () {
+		FirstRadio.Play ();
 	}
 }
