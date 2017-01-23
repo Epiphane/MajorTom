@@ -164,7 +164,11 @@ public class ShipManagerScript : MonoBehaviour {
 		}
 
 		if (shipSpeed > 50) {
+			bool wasOnGround = altitude < 75;
 			altitude += (shipSpeed - 50) * Time.deltaTime;
+			if (wasOnGround && altitude >= 75) {
+				PlayOnRadio (liftoffMessage);
+			}
 
             var lol = outsideWorld.transform.position;
             lol.y -= Mathf.Pow((shipSpeed - 50) * Time.deltaTime, 0.02f)/10;
